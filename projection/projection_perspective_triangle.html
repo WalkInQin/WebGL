@@ -51,38 +51,36 @@
             return Math.tan(degrees * Math.PI / 180);
         }
 
-
-        /*    function initLRBT() {
+        /*
+        function initLRBT() {
         	aspect = gl.viewportWidth/gl.viewportHeight;
 
-                var tangent = tan(fovY/2); // tangent of half fovY
-                height = near * tangent;         // half height of near plane
-                width = height * aspect;          // half width of near plane
-             
-                left = -width;
+            var tangent = tan(fovY/2); // tangent of half fovY
+            height = near * tangent;         // half height of near plane
+            width = height * aspect;          // half width of near plane
+
+            left = -width;
          	right = width;
         	topp = -height;
         	bottom = height;
+        }
 
-            }
-
-            function initVertices() {
-               
-                var vertices;
+        function initVertices() {
+            var vertices;
         	var scale  =  1.0;
         	var zEye = 5;
         	var leftAtAnyZ = left*(-zEye)/near;
         	var rightAtAnyZ = right*(-zEye)/near;
         	var bottomAtAnyZ = bottom*(-zEye)/near;
         	var topAtAnyZ = topp*(-zEye)/near;
-                vertices = [
-                    leftAtAnyZ*scale, bottomAtAnyZ*scale, -zEye,
-                    rightAtAnyZ*scale, bottomAtAnyZ*scale, -zEye,
-                    rightAtAnyZ*scale/2, topAtAnyZ*scale, -zEye,
-                    //leftAtAnyZ*scale, topAtAnyZ*scale, -zEye,
-                ];
+            vertices = [
+                leftAtAnyZ*scale, bottomAtAnyZ*scale, -zEye,
+                rightAtAnyZ*scale, bottomAtAnyZ*scale, -zEye,
+                rightAtAnyZ*scale/2, topAtAnyZ*scale, -zEye,
+                //leftAtAnyZ*scale, topAtAnyZ*scale, -zEye,
+            ];
         	return vertices;
-            }	
+        }
         */
 
 
@@ -125,20 +123,17 @@
             return vertices;
         }
 
-
-
         /*
-        	function initColors() {
-
-        	// New: Specify colors for each vertex as well
-                var colors = new Float32Array([
-                    1.0, 0.0, 0.0, // Vertex A (r,g,b)
-                    0.0, 1.0, 0.0, // Vertex B (r,g,b)
-                    0.0, 0.0, 1.0  // Vertex C (r,g,b)
-                ]);
-        	  return colors;
-        	}
-        	*/
+        function initColors() {
+            // New: Specify colors for each vertex as well
+            var colors = new Float32Array([
+                1.0, 0.0, 0.0, // Vertex A (r,g,b)
+                0.0, 1.0, 0.0, // Vertex B (r,g,b)
+                0.0, 0.0, 1.0  // Vertex C (r,g,b)
+            ]);
+            return colors;
+        }
+        */
 
         function initColors() {
             var colors = [0, 0, 1, 1, 0, 0, 0, 1, 0];
