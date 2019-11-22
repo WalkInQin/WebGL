@@ -38,21 +38,18 @@
 
 
 <script type="text/javascript">
+var gl;
+var left;
+var right;
+var bottom;
+var topp;
+var aspect;
+var fovY = 45.0;
+var near = 0.5;
+var far = 100.0;
 
-  var gl;
-
-  var left;
-  var right;
-  var bottom;
-  var topp;
-  var aspect;
-  
-  var fovY = 45.0;
-  var near = 0.5;
-  var far = 100.0;
-
-  function initLRBT() {
-	aspect = gl.viewportWidth/gl.viewportHeight;
+function initLRBT() {
+  aspect = gl.viewportWidth/gl.viewportHeight;
 
   var tangent = tan(fovY/2); // tangent of half fovY
   height = near * tangent;     // half height of near plane
@@ -76,8 +73,8 @@ function initVertices() {
     rightAtAnyZ*scale, topAtAnyZ*scale, zEye,
     leftAtAnyZ*scale, topAtAnyZ*scale, zEye,
   ];
-	return vertices;
-  }
+  return vertices;
+}
 
 
 function initTextureCoords() { 
@@ -199,7 +196,7 @@ function initTextureCoords() {
   return textureCoords;
 }
 
-  var shaderProgram;
+var shaderProgram;
 
 
 function handleLoadedTexture(texture) {
@@ -210,7 +207,7 @@ function handleLoadedTexture(texture) {
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.NEAREST);
     gl.bindTexture(gl.TEXTURE_2D, null);
 	drawScene();
-  }
+}
 
   var neheTexture;
 
@@ -241,12 +238,10 @@ function handleLoadedTexture(texture) {
     mvMatrix = mvMatrixStack.pop();
   }
 
-
   function setMatrixUniforms() {
     gl.uniformMatrix4fv(shaderProgram.pMatrixUniform, false, pMatrix);
     gl.uniformMatrix4fv(shaderProgram.mvMatrixUniform, false, mvMatrix);
   }
-
 
   var cubeVertexPositionBuffer;
   var cubeVertexTextureCoordBuffer;
@@ -256,7 +251,7 @@ function handleLoadedTexture(texture) {
     cubeVertexPositionBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, cubeVertexPositionBuffer);
 
-	var vertices = initVertices();
+    var vertices = initVertices();
     gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
     cubeVertexPositionBuffer.itemSize = 3;
     cubeVertexPositionBuffer.numItems = 4;
@@ -279,7 +274,6 @@ function handleLoadedTexture(texture) {
     cubeVertexTextureCoordBuffer.numItems = 4;
 
   }
-
 
   function drawScene() {
     gl.viewport(0, 0, gl.viewportWidth, gl.viewportHeight);
@@ -310,7 +304,6 @@ function handleLoadedTexture(texture) {
     gl.drawElements(gl.TRIANGLES, cubeVertexIndexBuffer.numItems, gl.UNSIGNED_SHORT, 0);
   }
 
-
   function webGLStart() {
     var canvas = document.getElementById("3dcanvas");
     initGL(canvas);
@@ -322,11 +315,7 @@ function handleLoadedTexture(texture) {
     gl.clearColor(0.0, 0.0, 0.0, 1.0);
     gl.enable(gl.DEPTH_TEST);
   }
-
-
 </script>
-
-
 </head>
 
 
